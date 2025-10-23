@@ -1,0 +1,29 @@
+<title>Блокнот</title>
+<style type="text/css">
+#b{
+border: 1px dotted red;
+}
+a{
+cursor: pointer;
+padding: 5px 10px;
+line-height: 2;
+user-select: none;
+}
+a:hover{
+color: red;
+}
+</style>
+<body>
+<div contenteditable id=b placeholder="ewfw"></div>
+<a onclick="localStorage['mx']='';">Удалить из памяти</a>
+<a onclick="b.innerHTML='';">Очистить блок</a>
+<script type="text/javascript">
+b.oninput=function() {
+localStorage['mx']=b.innerHTML;
+// b.oninput=history.replaceState(0,0,"#"+escape(b[i]+1)) ;
+}
+window.onload=function(){
+// b[i='innerHTML']=unescape(location.hash.slice(1,-1));
+if(''==b.innerHTML) b.innerHTML=localStorage['mx'];
+}
+</script>
